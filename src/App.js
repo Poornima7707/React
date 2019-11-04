@@ -1,14 +1,12 @@
 import React from 'react';
-import styles from './App.module.css'
-import logo from './logo.svg';
-import Form from './Form.js'
-
+import './App.css';
+// import Button from './Button';
+import Welcome from "../src/Welcome"
 
 function App() {
   return (
-    <div className={styles.base}>
-      <Form />
-
+    <div className="App">
+    <Welcome />
     </div>
   );
 }
