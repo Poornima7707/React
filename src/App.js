@@ -1,16 +1,12 @@
-import React from 'react';
-import styles from './App.module.css'
-import logo from './logo.svg';
-import Form from './Form.js'
+import React, { Component } from 'react'
+import FetchRandomUser from './FetchRandomUser'
 
-
-function App() {
-  return (
-    <div className={styles.base}>
-      <Form />
-
-    </div>
-  );
+export default class App extends Component {
+  render() {
+    return (
+      <div>
+        <FetchRandomUser/>
+      </div>
+    )
+  }
 }
-
-export default App;
