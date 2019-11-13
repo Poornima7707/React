@@ -1,3 +1,5 @@
+import axios from "axios";
+
 export const CARD_REQUESTING = "CARD_REQUESTING";
 export const CARD_SUCCESS = "CARD_SUCCESS";
 export const CARD_FAILURE = "CARD_FAILURE";
@@ -26,18 +28,19 @@ export function cardFailure(error) {
 }
 
 export function getCard() {
-  console.log("action elements");
   return async (dispatch, getState) => {
     dispatch(cardRequesting());
 
     try {
-      const result = await fetch("http://api.github.com/users");
+      const url = "https://api.github.com/users";
+      const result = await axios.get(url);
 
       if (result.error) {
         throw result.error;
       }
-      const resultJson = await result.json();
-      return dispatch(cardSuccess(resultJson));
+      const user = result.data;
+
+      return dispatch(cardSuccess(user));
     } catch (e) {
       return dispatch(cardFailure(e.message));
     }
